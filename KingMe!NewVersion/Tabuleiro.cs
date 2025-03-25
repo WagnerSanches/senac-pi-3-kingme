@@ -73,6 +73,9 @@ namespace KingMe_NewVersion
             label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
+            if (character.setor == 10)
+                character.setor = 5;
+
             int x = ((setores[character.setor]) * 60) + 129;
             int y = 205 + ((5 - character.setor) * 100);
             setores[character.setor]++;

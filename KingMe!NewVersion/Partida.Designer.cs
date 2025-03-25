@@ -37,11 +37,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnJogar = new System.Windows.Forms.Button();
             this.lblVez = new System.Windows.Forms.Label();
+            this.lblVezInfo = new System.Windows.Forms.Label();
+            this.lblPartidaStatus = new System.Windows.Forms.Label();
+            this.rdbSim = new System.Windows.Forms.RadioButton();
+            this.rdbNao = new System.Windows.Forms.RadioButton();
+            this.gpbVotacao = new System.Windows.Forms.GroupBox();
             this.gpbPartida.SuspendLayout();
+            this.gpbVotacao.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbPartida
             // 
+            this.gpbPartida.Controls.Add(this.gpbVotacao);
             this.gpbPartida.Controls.Add(this.label3);
             this.gpbPartida.Controls.Add(this.label2);
             this.gpbPartida.Controls.Add(this.label1);
@@ -49,9 +56,9 @@
             this.gpbPartida.Controls.Add(this.lstPersonagens);
             this.gpbPartida.Controls.Add(this.panel1);
             this.gpbPartida.Controls.Add(this.btnJogar);
-            this.gpbPartida.Location = new System.Drawing.Point(12, 65);
+            this.gpbPartida.Location = new System.Drawing.Point(12, 77);
             this.gpbPartida.Name = "gpbPartida";
-            this.gpbPartida.Size = new System.Drawing.Size(760, 384);
+            this.gpbPartida.Size = new System.Drawing.Size(760, 372);
             this.gpbPartida.TabIndex = 0;
             this.gpbPartida.TabStop = false;
             this.gpbPartida.Text = "Partida";
@@ -122,27 +129,90 @@
             this.lblVez.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVez.AutoSize = true;
             this.lblVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVez.Location = new System.Drawing.Point(337, 20);
+            this.lblVez.Location = new System.Drawing.Point(343, 30);
             this.lblVez.Name = "lblVez";
             this.lblVez.Size = new System.Drawing.Size(40, 20);
             this.lblVez.TabIndex = 1;
             this.lblVez.Text = "Vez";
             this.lblVez.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblVezInfo
+            // 
+            this.lblVezInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblVezInfo.AutoSize = true;
+            this.lblVezInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVezInfo.Location = new System.Drawing.Point(17, 9);
+            this.lblVezInfo.Name = "lblVezInfo";
+            this.lblVezInfo.Size = new System.Drawing.Size(40, 20);
+            this.lblVezInfo.TabIndex = 2;
+            this.lblVezInfo.Text = "Vez";
+            this.lblVezInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPartidaStatus
+            // 
+            this.lblPartidaStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblPartidaStatus.AutoSize = true;
+            this.lblPartidaStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartidaStatus.Location = new System.Drawing.Point(343, 9);
+            this.lblPartidaStatus.Name = "lblPartidaStatus";
+            this.lblPartidaStatus.Size = new System.Drawing.Size(37, 20);
+            this.lblPartidaStatus.TabIndex = 3;
+            this.lblPartidaStatus.Text = "Vez";
+            this.lblPartidaStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rdbSim
+            // 
+            this.rdbSim.AutoSize = true;
+            this.rdbSim.Location = new System.Drawing.Point(17, 32);
+            this.rdbSim.Name = "rdbSim";
+            this.rdbSim.Size = new System.Drawing.Size(42, 17);
+            this.rdbSim.TabIndex = 7;
+            this.rdbSim.TabStop = true;
+            this.rdbSim.Text = "Sim";
+            this.rdbSim.UseVisualStyleBackColor = true;
+            // 
+            // rdbNao
+            // 
+            this.rdbNao.AutoSize = true;
+            this.rdbNao.Location = new System.Drawing.Point(17, 55);
+            this.rdbNao.Name = "rdbNao";
+            this.rdbNao.Size = new System.Drawing.Size(45, 17);
+            this.rdbNao.TabIndex = 8;
+            this.rdbNao.TabStop = true;
+            this.rdbNao.Text = "Nao";
+            this.rdbNao.UseVisualStyleBackColor = true;
+            // 
+            // gpbVotacao
+            // 
+            this.gpbVotacao.Controls.Add(this.rdbSim);
+            this.gpbVotacao.Controls.Add(this.rdbNao);
+            this.gpbVotacao.Location = new System.Drawing.Point(456, 196);
+            this.gpbVotacao.Name = "gpbVotacao";
+            this.gpbVotacao.Size = new System.Drawing.Size(200, 100);
+            this.gpbVotacao.TabIndex = 10;
+            this.gpbVotacao.TabStop = false;
+            this.gpbVotacao.Text = "Votacao";
+            this.gpbVotacao.Visible = false;
+            // 
             // Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.lblPartidaStatus);
+            this.Controls.Add(this.lblVezInfo);
             this.Controls.Add(this.lblVez);
             this.Controls.Add(this.gpbPartida);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Partida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Partida";
             this.Load += new System.EventHandler(this.Partida_Load);
             this.gpbPartida.ResumeLayout(false);
             this.gpbPartida.PerformLayout();
+            this.gpbVotacao.ResumeLayout(false);
+            this.gpbVotacao.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +229,10 @@
         private System.Windows.Forms.ListBox lstSetores;
         private System.Windows.Forms.ListBox lstPersonagens;
         private System.Windows.Forms.Label lblVez;
+        private System.Windows.Forms.Label lblVezInfo;
+        private System.Windows.Forms.Label lblPartidaStatus;
+        private System.Windows.Forms.GroupBox gpbVotacao;
+        private System.Windows.Forms.RadioButton rdbSim;
+        private System.Windows.Forms.RadioButton rdbNao;
     }
 }

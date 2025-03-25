@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KingMe_NewVersion
 {
@@ -46,6 +47,41 @@ namespace KingMe_NewVersion
                 lstPersonagens.Items.Add(personagens[i]);
         }
 
+        private void atualizarPartidaStatus(string status)
+        {
+            Console.WriteLine(">>>" + status.Split('\n')[0].Split(',')[3]);
+
+
+            switch (status.Split('\n')[0].Split(',')[3].Trim())
+            {
+                case "P":
+                    lblPartidaStatus.Text = "Promocao!";
+                    Global.partida.etapa = "P";
+                    lstSetores.Hide();
+                    label3.Hide();
+                    gpbVotacao.Hide();
+                    lstPersonagens.Show();
+                    label2.Show();
+                    break;
+
+                case "S":
+                    lblPartidaStatus.Text = "Selecao!";
+                    Global.partida.etapa = "S";
+
+
+                    break;
+                case "V":
+                    lblPartidaStatus.Text = "Votacao!";
+                    Global.partida.etapa = "V";
+                    lstPersonagens.Hide();
+                    label2.Hide();
+                    lstSetores.Hide();
+                    label3.Hide();
+                    gpbVotacao.Show();
+                    break;
+            }
+        }
+
         public async void verificarVez()
         {
             while (true)
@@ -54,6 +90,10 @@ namespace KingMe_NewVersion
 
                 if (Validator.validateStatus(status))
                 {
+                    lblVezInfo.Text = status.Split('\n')[0];
+
+                    atualizarPartidaStatus(status);
+
                     int idJogadorVez = Int32.Parse(status.Split(',')[0]);
                     if (idJogadorVez == Global.player.id)
                     {
@@ -153,26 +193,63 @@ namespace KingMe_NewVersion
             labels.Add(favorito);
         }
 
-        private void btnJogar_Click(object sender, EventArgs e)
+        private string selecao()
         {
-            if (lstPersonagens.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione um personagem!");
-                return;
-            }
+            string personagem = lstPersonagens.SelectedItem.ToString().Replace("\n", "")[0].ToString();
 
             if (lstSetores.SelectedItem == null)
             {
                 MessageBox.Show("Selecione um setor!");
-                return;
+                return "ERRO";
+            }
+
+            int setor = Int32.Parse(lstSetores.SelectedItem.ToString().Replace("\n", "").Split(',')[0]);
+            return Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, personagem);
+        }
+
+        private string votacao()
+        {
+            if (rdbSim.Checked == false && rdbNao.Checked == false)
+            {
+                MessageBox.Show("Selecione uma opcao!");
+                return "ERRO";
+            }
+
+            string voto = rdbSim.Checked ? "S" : "N";
+            return Jogo.Votar(Global.player.id, Global.player.senha, voto);
+        }
+
+        private string promocao()
+        {
+            if (lstPersonagens.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um personagem!");
+                return "ERRO";
             }
 
             string personagem = lstPersonagens.SelectedItem.ToString().Replace("\n", "")[0].ToString();
-            int setor = Int32.Parse(lstSetores.SelectedItem.ToString().Replace("\n", "").Split(',')[0]);
 
-            string status = Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, personagem);
+            return Jogo.Promover(Global.player.id, Global.player.senha, personagem);
+        }
 
-            if(Validator.validateStatus(status))
+        private void btnJogar_Click(object sender, EventArgs e)
+        {
+
+            string status = "";
+            switch(Global.partida.etapa)
+            {
+                case "S":
+                    selecao();
+                    break;
+                case "V":
+                    votacao();
+                    break;
+                case "P":
+                    promocao();
+                    break;
+            }
+
+            if (Validator.validateStatus(status))
             {
                 listarSetores();
                 listarPersonagens();

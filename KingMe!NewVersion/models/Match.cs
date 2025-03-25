@@ -12,6 +12,7 @@ namespace KingMe_NewVersion.models
         public string nome;
         public string status;
         public string data;
+        public string etapa;
 
         public Match(string[] values)
         {
