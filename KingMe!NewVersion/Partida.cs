@@ -26,6 +26,7 @@ namespace KingMe_NewVersion
         List<char> favoritos = new List<char>();
         int MY_FAVORITES_PLAYED = 5;
         Dictionary<string, int> historico = new Dictionary<string, int>();
+        bool jogando = false;
 
         private void listarSetores()
         {
@@ -61,6 +62,7 @@ namespace KingMe_NewVersion
                     gpbVotacao.Hide();
                     lstPersonagens.Show();
                     label2.Show();
+                    jogando = true;
                     break;
 
                 case "S":
@@ -71,6 +73,12 @@ namespace KingMe_NewVersion
                     lstSetores.Show();
                     label3.Show();
                     gpbVotacao.Hide();
+                    if(jogando)
+                    {
+                        jogando = false;
+                        historico = new Dictionary<string, int>();
+                        favoritos = new List<char>();
+                    }
 
                     break;
                 case "V":
