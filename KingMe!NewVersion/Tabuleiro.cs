@@ -15,7 +15,7 @@ namespace KingMe_NewVersion
 {
     public partial class Tabuleiro: Form
     {
-        private int[] setores = new int[] { 0, 0, 0, 0, 0, 0};
+        
         List<Label> personagens = new List<Label>();
         public Tabuleiro()
         {
@@ -38,7 +38,7 @@ namespace KingMe_NewVersion
 
                 }
                 personagens.Clear();
-                setores = new int[] { 0, 0, 0, 0, 0, 0 };
+                Global.setores = new int[] { 0, 0, 0, 0, 0, 0 };
             }
         }
 
@@ -46,7 +46,6 @@ namespace KingMe_NewVersion
         {
             limparTabuleiro();
             string status = Jogo.VerificarVez(Global.partida.id);
-            Console.WriteLine(status);
 
             if (Validator.validateStatus(status))
             {
@@ -76,9 +75,9 @@ namespace KingMe_NewVersion
             if (character.setor == 10)
                 character.setor = 5;
 
-            int x = ((setores[character.setor]) * 60) + 129;
+            int x = ((Global.setores[character.setor]) * 60) + 129;
             int y = 205 + ((5 - character.setor) * 100);
-            setores[character.setor]++;
+            Global.setores[character.setor]++;
 
             label.BackColor = Constants.mapaCores[character.nome[0]];
             label.Location = new System.Drawing.Point(x, y);

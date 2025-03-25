@@ -24,6 +24,8 @@ namespace KingMe_NewVersion
         List<Label> labels = new List<Label>();
         PictureBox loading = new PictureBox();
         List<char> favoritos = new List<char>();
+        int MY_FAVORITES_PLAYED = 5;
+        Dictionary<string, int> historico = new Dictionary<string, int>();
 
         private void listarSetores()
         {
@@ -97,7 +99,7 @@ namespace KingMe_NewVersion
                 lstPontuacao.Items.Add(jogadores[i].Replace(",", "   "));
         }
 
-        public async void verificarVez()
+        public async Task verificarVez()
         {
             while (true)
             {
@@ -106,7 +108,19 @@ namespace KingMe_NewVersion
                 {
                     atualizarPontuacao();
 
-                    lblVezInfo.Text = status.Split('\n')[0];
+                    string[] hist = status.Replace("\r", "").Split('\n');
+                    lblVezInfo.Text = hist[0];
+                    lstHistorico.Items.Clear();
+
+                    for (int i = 1; i < hist.Length - 1;i++)
+                    {
+                        if (!historico.ContainsKey(hist[i].Split(',')[1].Trim()))
+                        {
+                            historico.Add(hist[i].Split(',')[1].Trim(), Int32.Parse(hist[i].Split(',')[0]));
+                        }
+
+                        lstHistorico.Items.Add(hist[i]);
+                    }
 
                     atualizarPartidaStatus(status);
 
@@ -132,7 +146,7 @@ namespace KingMe_NewVersion
                     }
                 }
 
-                await Task.Delay(2000); 
+                await Task.Delay(3000); 
             }
         }
 
@@ -158,9 +172,10 @@ namespace KingMe_NewVersion
                     addFavorito(status[i].ToString(), Constants.mapaCores[status[i]]);
                 }
             }
+
         }
 
-        private void Partida_Load(object sender, EventArgs e)
+        private async void Partida_Load(object sender, EventArgs e)
         {
             tabuleiro = new Tabuleiro();
 
@@ -182,7 +197,9 @@ namespace KingMe_NewVersion
             listarSetores();
             listarPersonagens();
             listarFavoritos();
-            verificarVez();
+            await verificarVez();
+
+            await jogar();
         }
 
 
@@ -260,7 +277,7 @@ namespace KingMe_NewVersion
             return Jogo.Promover(Global.player.id, Global.player.senha, personagem);
         }
 
-        private void btnJogar_Click(object sender, EventArgs e)
+        private async void btnJogar_Click(object sender, EventArgs e)
         {
 
             string status = "";
@@ -279,12 +296,119 @@ namespace KingMe_NewVersion
 
             if (Validator.validateStatus(status))
             {
-                verificarVez();
+                await verificarVez();
                 listarSetores();
                 listarPersonagens();
                 listarFavoritos();
                 tabuleiro.atualizarTabuleiro();
             }
+        }
+
+        private async Task jogar()
+        {
+            await Task.Delay(3000);
+
+            int setor = 0;
+            switch(Global.partida.etapa)
+            {
+                case "S":
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (Global.setores[i] < 4)
+                        {
+                            setor = i;
+                            break;
+                        }
+                    }
+
+                    bool placed = false;
+
+                    while (MY_FAVORITES_PLAYED > 0)
+                    {
+                        if (!historico.ContainsKey(favoritos[MY_FAVORITES_PLAYED - 1].ToString()))
+                        {
+                            string status = Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, favoritos[MY_FAVORITES_PLAYED - 1].ToString());
+                            placed = true;
+                            Console.WriteLine(status);
+                            break;
+                        }
+
+                        MY_FAVORITES_PLAYED--;
+                    }
+
+                    if (placed == false)
+                    {
+                        for (int j = 0; j < lstPersonagens.Items.Count; j++)
+                        {
+                            Console.WriteLine("kkk " + lstPersonagens.Items[j].ToString());
+                            string personagem = lstPersonagens.Items[j].ToString().Replace("\n", "")[0].ToString();
+
+                            if (!historico.ContainsKey(personagem))
+                            {
+                                string status = Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, personagem);
+                                break;
+                            }
+                        }
+
+                    }
+
+                    break;
+                case "P":
+                    
+                    for(int i = 5; i > 0; i--)
+                    {
+                        List<string> personagens = historico.Keys.Where(k => historico[k] == i).ToList();
+
+                        if (personagens.Count == 0) continue;
+
+                        bool played = false;
+
+                        personagens.ForEach(p =>
+                        {
+                            if (favoritos.Contains(p[0]))
+                            {
+                                string s  = Jogo.Promover(Global.player.id, Global.player.senha, p);
+                                played = true;
+                                return;
+                            }
+                        });
+
+                        if (played) break;
+
+                        string personagem = personagens[personagens.Count - 1];
+                        personagens.Remove(personagem);
+                        string status = Jogo.Promover(Global.player.id, Global.player.senha, personagem);
+                    }
+                    
+                    break;
+                case "V":
+                    string rei = historico.FirstOrDefault(kv => kv.Value == 10).Key;
+                    if (favoritos.Contains(rei[0]))
+                    {
+                        string status = Jogo.Votar(Global.player.id, Global.player.senha, "S");
+                        
+                    } else
+                    {
+                        string status = Jogo.Votar(Global.player.id, Global.player.senha, "N");
+
+                        if(status.Contains("ERRO"))
+                        {
+                            Jogo.Votar(Global.player.id, Global.player.senha, "S");
+                        } else
+                        {
+                            Global.player.votos--;
+                            lblVotos.Text = Global.player.votos.ToString();
+                        }
+                    }
+
+                    break;
+            }
+
+            tabuleiro.atualizarTabuleiro();
+
+            await verificarVez();
+
+            await jogar();
         }
     }
 }

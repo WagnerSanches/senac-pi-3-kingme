@@ -13,6 +13,6 @@ namespace KingMe_NewVersion.utils
         public static Player player;
         public static Match partida;
         public static List<string> jogadas;
-
+        public static int[] setores = new int[] { 0, 0, 0, 0, 0, 0 };
     }
 }

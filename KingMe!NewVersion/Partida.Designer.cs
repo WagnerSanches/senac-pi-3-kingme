@@ -46,6 +46,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblVotos = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lstHistorico = new System.Windows.Forms.ListBox();
             this.gpbPartida.SuspendLayout();
             this.gpbVotacao.SuspendLayout();
             this.SuspendLayout();
@@ -239,11 +241,30 @@
             this.lblVotos.Text = "0";
             this.lblVotos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(878, 159);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Historico";
+            // 
+            // lstHistorico
+            // 
+            this.lstHistorico.FormattingEnabled = true;
+            this.lstHistorico.Location = new System.Drawing.Point(778, 175);
+            this.lstHistorico.Name = "lstHistorico";
+            this.lstHistorico.Size = new System.Drawing.Size(241, 277);
+            this.lstHistorico.TabIndex = 15;
+            // 
             // Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 461);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lstHistorico);
             this.Controls.Add(this.lblVotos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -287,5 +308,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblVotos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lstHistorico;
     }
 }
