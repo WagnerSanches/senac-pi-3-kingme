@@ -209,7 +209,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(-71, 39);
+            this.label5.Location = new System.Drawing.Point(17, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 20);
             this.label5.TabIndex = 12;
@@ -221,7 +221,7 @@
             this.lblVotos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVotos.AutoSize = true;
             this.lblVotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVotos.Location = new System.Drawing.Point(117, 39);
+            this.lblVotos.Location = new System.Drawing.Point(205, 9);
             this.lblVotos.Name = "lblVotos";
             this.lblVotos.Size = new System.Drawing.Size(18, 20);
             this.lblVotos.TabIndex = 13;
