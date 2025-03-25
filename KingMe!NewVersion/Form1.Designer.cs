@@ -48,6 +48,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::KingMe_NewVersion.Properties.Resources.kingme;
             this.pictureBox1.ImageLocation = "C:\\Users\\Home-PC\\source\\repos\\KingMe!NewVersion\\KingMe!NewVersion\\images\\kingme.p" +
     "ng";
             this.pictureBox1.Location = new System.Drawing.Point(160, 12);

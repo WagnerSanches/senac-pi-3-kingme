@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.gpbPartida = new System.Windows.Forms.GroupBox();
+            this.gpbVotacao = new System.Windows.Forms.GroupBox();
+            this.rdbSim = new System.Windows.Forms.RadioButton();
+            this.rdbNao = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,9 +42,10 @@
             this.lblVez = new System.Windows.Forms.Label();
             this.lblVezInfo = new System.Windows.Forms.Label();
             this.lblPartidaStatus = new System.Windows.Forms.Label();
-            this.rdbSim = new System.Windows.Forms.RadioButton();
-            this.rdbNao = new System.Windows.Forms.RadioButton();
-            this.gpbVotacao = new System.Windows.Forms.GroupBox();
+            this.lstPontuacao = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblVotos = new System.Windows.Forms.Label();
             this.gpbPartida.SuspendLayout();
             this.gpbVotacao.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +66,40 @@
             this.gpbPartida.TabIndex = 0;
             this.gpbPartida.TabStop = false;
             this.gpbPartida.Text = "Partida";
+            // 
+            // gpbVotacao
+            // 
+            this.gpbVotacao.Controls.Add(this.rdbSim);
+            this.gpbVotacao.Controls.Add(this.rdbNao);
+            this.gpbVotacao.Location = new System.Drawing.Point(456, 196);
+            this.gpbVotacao.Name = "gpbVotacao";
+            this.gpbVotacao.Size = new System.Drawing.Size(200, 100);
+            this.gpbVotacao.TabIndex = 10;
+            this.gpbVotacao.TabStop = false;
+            this.gpbVotacao.Text = "Votacao";
+            this.gpbVotacao.Visible = false;
+            // 
+            // rdbSim
+            // 
+            this.rdbSim.AutoSize = true;
+            this.rdbSim.Location = new System.Drawing.Point(17, 32);
+            this.rdbSim.Name = "rdbSim";
+            this.rdbSim.Size = new System.Drawing.Size(42, 17);
+            this.rdbSim.TabIndex = 7;
+            this.rdbSim.TabStop = true;
+            this.rdbSim.Text = "Sim";
+            this.rdbSim.UseVisualStyleBackColor = true;
+            // 
+            // rdbNao
+            // 
+            this.rdbNao.AutoSize = true;
+            this.rdbNao.Location = new System.Drawing.Point(17, 55);
+            this.rdbNao.Name = "rdbNao";
+            this.rdbNao.Size = new System.Drawing.Size(45, 17);
+            this.rdbNao.TabIndex = 8;
+            this.rdbNao.TabStop = true;
+            this.rdbNao.Text = "Nao";
+            this.rdbNao.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -129,7 +167,7 @@
             this.lblVez.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVez.AutoSize = true;
             this.lblVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVez.Location = new System.Drawing.Point(343, 30);
+            this.lblVez.Location = new System.Drawing.Point(466, 30);
             this.lblVez.Name = "lblVez";
             this.lblVez.Size = new System.Drawing.Size(40, 20);
             this.lblVez.TabIndex = 1;
@@ -141,7 +179,7 @@
             this.lblVezInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVezInfo.AutoSize = true;
             this.lblVezInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVezInfo.Location = new System.Drawing.Point(17, 9);
+            this.lblVezInfo.Location = new System.Drawing.Point(8, 9);
             this.lblVezInfo.Name = "lblVezInfo";
             this.lblVezInfo.Size = new System.Drawing.Size(40, 20);
             this.lblVezInfo.TabIndex = 2;
@@ -153,52 +191,63 @@
             this.lblPartidaStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPartidaStatus.AutoSize = true;
             this.lblPartidaStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartidaStatus.Location = new System.Drawing.Point(343, 9);
+            this.lblPartidaStatus.Location = new System.Drawing.Point(466, 9);
             this.lblPartidaStatus.Name = "lblPartidaStatus";
             this.lblPartidaStatus.Size = new System.Drawing.Size(37, 20);
             this.lblPartidaStatus.TabIndex = 3;
             this.lblPartidaStatus.Text = "Vez";
             this.lblPartidaStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rdbSim
+            // lstPontuacao
             // 
-            this.rdbSim.AutoSize = true;
-            this.rdbSim.Location = new System.Drawing.Point(17, 32);
-            this.rdbSim.Name = "rdbSim";
-            this.rdbSim.Size = new System.Drawing.Size(42, 17);
-            this.rdbSim.TabIndex = 7;
-            this.rdbSim.TabStop = true;
-            this.rdbSim.Text = "Sim";
-            this.rdbSim.UseVisualStyleBackColor = true;
+            this.lstPontuacao.FormattingEnabled = true;
+            this.lstPontuacao.Location = new System.Drawing.Point(778, 86);
+            this.lstPontuacao.Name = "lstPontuacao";
+            this.lstPontuacao.Size = new System.Drawing.Size(241, 56);
+            this.lstPontuacao.TabIndex = 11;
             // 
-            // rdbNao
+            // label4
             // 
-            this.rdbNao.AutoSize = true;
-            this.rdbNao.Location = new System.Drawing.Point(17, 55);
-            this.rdbNao.Name = "rdbNao";
-            this.rdbNao.Size = new System.Drawing.Size(45, 17);
-            this.rdbNao.TabIndex = 8;
-            this.rdbNao.TabStop = true;
-            this.rdbNao.Text = "Nao";
-            this.rdbNao.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(878, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Pontuação";
             // 
-            // gpbVotacao
+            // label5
             // 
-            this.gpbVotacao.Controls.Add(this.rdbSim);
-            this.gpbVotacao.Controls.Add(this.rdbNao);
-            this.gpbVotacao.Location = new System.Drawing.Point(456, 196);
-            this.gpbVotacao.Name = "gpbVotacao";
-            this.gpbVotacao.Size = new System.Drawing.Size(200, 100);
-            this.gpbVotacao.TabIndex = 10;
-            this.gpbVotacao.TabStop = false;
-            this.gpbVotacao.Text = "Votacao";
-            this.gpbVotacao.Visible = false;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(745, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(192, 20);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Votos \'Nao\' restantes: ";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblVotos
+            // 
+            this.lblVotos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblVotos.AutoSize = true;
+            this.lblVotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVotos.Location = new System.Drawing.Point(933, 20);
+            this.lblVotos.Name = "lblVotos";
+            this.lblVotos.Size = new System.Drawing.Size(18, 20);
+            this.lblVotos.TabIndex = 13;
+            this.lblVotos.Text = "0";
+            this.lblVotos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(1031, 461);
+            this.Controls.Add(this.lblVotos);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lstPontuacao);
             this.Controls.Add(this.lblPartidaStatus);
             this.Controls.Add(this.lblVezInfo);
             this.Controls.Add(this.lblVez);
@@ -234,5 +283,9 @@
         private System.Windows.Forms.GroupBox gpbVotacao;
         private System.Windows.Forms.RadioButton rdbSim;
         private System.Windows.Forms.RadioButton rdbNao;
+        private System.Windows.Forms.ListBox lstPontuacao;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblVotos;
     }
 }

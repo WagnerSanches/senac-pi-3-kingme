@@ -12,10 +12,12 @@ namespace KingMe_NewVersion.models
         public string nome;
         public string senha;
         public string pontos;
+        public int votos;
 
         public Player(string nome)
         {
             this.nome = nome;
+            this.votos = 4;
         }
 
         public void InformacoesPlayerPartida(string partida)

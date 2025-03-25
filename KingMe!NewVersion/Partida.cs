@@ -49,9 +49,6 @@ namespace KingMe_NewVersion
 
         private void atualizarPartidaStatus(string status)
         {
-            Console.WriteLine(">>>" + status.Split('\n')[0].Split(',')[3]);
-
-
             switch (status.Split('\n')[0].Split(',')[3].Trim())
             {
                 case "P":
@@ -67,8 +64,11 @@ namespace KingMe_NewVersion
                 case "S":
                     lblPartidaStatus.Text = "Selecao!";
                     Global.partida.etapa = "S";
-
-
+                    lstPersonagens.Show();
+                    label2.Show();
+                    lstSetores.Show();
+                    label3.Show();
+                    gpbVotacao.Hide();
                     break;
                 case "V":
                     lblPartidaStatus.Text = "Votacao!";
@@ -79,7 +79,22 @@ namespace KingMe_NewVersion
                     label3.Hide();
                     gpbVotacao.Show();
                     break;
+                case "E":
+                    MessageBox.Show("Fim de jogo!");
+                    this.Close();
+                    break;
             }
+        }
+
+        public void atualizarPontuacao()
+        {
+            string strJogadores = Jogo.ListarJogadores(Global.partida.id);
+            string[] jogadores = strJogadores.Split('\n');
+
+            lstPontuacao.Items.Clear();
+
+            for (int i = 0; i < jogadores.Length - 1; i++)
+                lstPontuacao.Items.Add(jogadores[i].Replace(",", "   "));
         }
 
         public async void verificarVez()
@@ -87,9 +102,10 @@ namespace KingMe_NewVersion
             while (true)
             {
                 string status = Jogo.VerificarVez(Global.partida.id);
-
                 if (Validator.validateStatus(status))
                 {
+                    atualizarPontuacao();
+
                     lblVezInfo.Text = status.Split('\n')[0];
 
                     atualizarPartidaStatus(status);
@@ -139,10 +155,8 @@ namespace KingMe_NewVersion
                 for (int i = 0; i < status.Length - 1; i++)
                 {
                     favoritos.Add(status[i]);
-                    Console.WriteLine(status[i]);
                     addFavorito(status[i].ToString(), Constants.mapaCores[status[i]]);
                 }
-
             }
         }
 
@@ -153,6 +167,7 @@ namespace KingMe_NewVersion
             this.FormClosed += (s, args) => tabuleiro.Close();
             tabuleiro.Show();
 
+            lblVotos.Text = Global.player.votos.ToString();
 
             loading.Image = global::KingMe_NewVersion.Properties.Resources.load;
             loading.Location = new System.Drawing.Point(370, 220);
@@ -195,7 +210,11 @@ namespace KingMe_NewVersion
 
         private string selecao()
         {
-            string personagem = lstPersonagens.SelectedItem.ToString().Replace("\n", "")[0].ToString();
+            if (lstPersonagens.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um personagem!");
+                return "ERRO";
+            }
 
             if (lstSetores.SelectedItem == null)
             {
@@ -203,7 +222,9 @@ namespace KingMe_NewVersion
                 return "ERRO";
             }
 
+            string personagem = lstPersonagens.SelectedItem.ToString().Replace("\n", "")[0].ToString();
             int setor = Int32.Parse(lstSetores.SelectedItem.ToString().Replace("\n", "").Split(',')[0]);
+
             return Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, personagem);
         }
 
@@ -216,6 +237,13 @@ namespace KingMe_NewVersion
             }
 
             string voto = rdbSim.Checked ? "S" : "N";
+
+            if (rdbNao.Checked && Global.player.votos > 0)
+            {
+                Global.player.votos--;
+                lblVotos.Text = Global.player.votos.ToString();
+            }
+
             return Jogo.Votar(Global.player.id, Global.player.senha, voto);
         }
 
@@ -239,22 +267,22 @@ namespace KingMe_NewVersion
             switch(Global.partida.etapa)
             {
                 case "S":
-                    selecao();
+                    status = selecao();
                     break;
                 case "V":
-                    votacao();
+                    status = votacao();
                     break;
                 case "P":
-                    promocao();
+                    status = promocao();
                     break;
             }
 
             if (Validator.validateStatus(status))
             {
+                verificarVez();
                 listarSetores();
                 listarPersonagens();
                 listarFavoritos();
-                verificarVez();
                 tabuleiro.atualizarTabuleiro();
             }
         }
