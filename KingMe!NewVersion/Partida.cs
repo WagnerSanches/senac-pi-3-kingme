@@ -112,7 +112,7 @@ namespace KingMe_NewVersion
                     lblVezInfo.Text = hist[0];
                     lstHistorico.Items.Clear();
 
-                    for (int i = 1; i < hist.Length - 1;i++)
+                    for (int i = 1; i < hist.Length; i++)
                     {
                         if (!historico.ContainsKey(hist[i].Split(',')[1].Trim()))
                         {
@@ -306,6 +306,7 @@ namespace KingMe_NewVersion
 
         private async Task jogar()
         {
+            await verificarVez();
             await Task.Delay(3000);
 
             int setor = 0;
@@ -405,8 +406,6 @@ namespace KingMe_NewVersion
             }
 
             tabuleiro.atualizarTabuleiro();
-
-            await verificarVez();
 
             await jogar();
         }
