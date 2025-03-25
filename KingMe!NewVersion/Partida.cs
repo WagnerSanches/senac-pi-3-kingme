@@ -71,6 +71,7 @@ namespace KingMe_NewVersion
                     lstSetores.Show();
                     label3.Show();
                     gpbVotacao.Hide();
+
                     break;
                 case "V":
                     lblPartidaStatus.Text = "Votacao!";
@@ -326,9 +327,9 @@ namespace KingMe_NewVersion
 
                     bool placed = false;
 
-                    while (MY_FAVORITES_PLAYED > 0)
+                    for(int i = 0; i < MY_FAVORITES_PLAYED; i++)
                     {
-                        if (!historico.ContainsKey(favoritos[MY_FAVORITES_PLAYED - 1].ToString()))
+                        if (!historico.ContainsKey(favoritos[i].ToString()))
                         {
                             string status = Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, favoritos[MY_FAVORITES_PLAYED - 1].ToString());
                             placed = true;
@@ -336,14 +337,12 @@ namespace KingMe_NewVersion
                             break;
                         }
 
-                        MY_FAVORITES_PLAYED--;
                     }
 
                     if (placed == false)
                     {
                         for (int j = 0; j < lstPersonagens.Items.Count; j++)
                         {
-                            Console.WriteLine("kkk " + lstPersonagens.Items[j].ToString());
                             string personagem = lstPersonagens.Items[j].ToString().Replace("\n", "")[0].ToString();
 
                             if (!historico.ContainsKey(personagem))
