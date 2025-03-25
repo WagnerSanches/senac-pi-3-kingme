@@ -40,7 +40,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnJogar = new System.Windows.Forms.Button();
             this.lblVez = new System.Windows.Forms.Label();
-            this.lblVezInfo = new System.Windows.Forms.Label();
             this.lblPartidaStatus = new System.Windows.Forms.Label();
             this.lstPontuacao = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,7 +63,7 @@
             this.gpbPartida.Controls.Add(this.btnJogar);
             this.gpbPartida.Location = new System.Drawing.Point(12, 77);
             this.gpbPartida.Name = "gpbPartida";
-            this.gpbPartida.Size = new System.Drawing.Size(760, 372);
+            this.gpbPartida.Size = new System.Drawing.Size(590, 372);
             this.gpbPartida.TabIndex = 0;
             this.gpbPartida.TabStop = false;
             this.gpbPartida.Text = "Partida";
@@ -73,7 +72,7 @@
             // 
             this.gpbVotacao.Controls.Add(this.rdbSim);
             this.gpbVotacao.Controls.Add(this.rdbNao);
-            this.gpbVotacao.Location = new System.Drawing.Point(456, 196);
+            this.gpbVotacao.Location = new System.Drawing.Point(369, 196);
             this.gpbVotacao.Name = "gpbVotacao";
             this.gpbVotacao.Size = new System.Drawing.Size(200, 100);
             this.gpbVotacao.TabIndex = 10;
@@ -106,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(241, 196);
+            this.label3.Location = new System.Drawing.Point(178, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 6;
@@ -133,7 +132,7 @@
             // lstSetores
             // 
             this.lstSetores.FormattingEnabled = true;
-            this.lstSetores.Location = new System.Drawing.Point(244, 212);
+            this.lstSetores.Location = new System.Drawing.Point(181, 212);
             this.lstSetores.Name = "lstSetores";
             this.lstSetores.Size = new System.Drawing.Size(140, 121);
             this.lstSetores.TabIndex = 3;
@@ -151,12 +150,12 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(6, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(748, 91);
+            this.panel1.Size = new System.Drawing.Size(563, 91);
             this.panel1.TabIndex = 1;
             // 
             // btnJogar
             // 
-            this.btnJogar.Location = new System.Drawing.Point(658, 342);
+            this.btnJogar.Location = new System.Drawing.Point(494, 334);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(75, 23);
             this.btnJogar.TabIndex = 0;
@@ -169,31 +168,19 @@
             this.lblVez.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVez.AutoSize = true;
             this.lblVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVez.Location = new System.Drawing.Point(466, 30);
+            this.lblVez.Location = new System.Drawing.Point(383, 9);
             this.lblVez.Name = "lblVez";
             this.lblVez.Size = new System.Drawing.Size(40, 20);
             this.lblVez.TabIndex = 1;
             this.lblVez.Text = "Vez";
             this.lblVez.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblVezInfo
-            // 
-            this.lblVezInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblVezInfo.AutoSize = true;
-            this.lblVezInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVezInfo.Location = new System.Drawing.Point(8, 9);
-            this.lblVezInfo.Name = "lblVezInfo";
-            this.lblVezInfo.Size = new System.Drawing.Size(40, 20);
-            this.lblVezInfo.TabIndex = 2;
-            this.lblVezInfo.Text = "Vez";
-            this.lblVezInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblPartidaStatus
             // 
             this.lblPartidaStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPartidaStatus.AutoSize = true;
             this.lblPartidaStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartidaStatus.Location = new System.Drawing.Point(466, 9);
+            this.lblPartidaStatus.Location = new System.Drawing.Point(386, 29);
             this.lblPartidaStatus.Name = "lblPartidaStatus";
             this.lblPartidaStatus.Size = new System.Drawing.Size(37, 20);
             this.lblPartidaStatus.TabIndex = 3;
@@ -203,7 +190,7 @@
             // lstPontuacao
             // 
             this.lstPontuacao.FormattingEnabled = true;
-            this.lstPontuacao.Location = new System.Drawing.Point(778, 86);
+            this.lstPontuacao.Location = new System.Drawing.Point(611, 97);
             this.lstPontuacao.Name = "lstPontuacao";
             this.lstPontuacao.Size = new System.Drawing.Size(241, 56);
             this.lstPontuacao.TabIndex = 11;
@@ -211,7 +198,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(878, 70);
+            this.label4.Location = new System.Drawing.Point(711, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 11;
@@ -222,7 +209,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(745, 20);
+            this.label5.Location = new System.Drawing.Point(-71, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 20);
             this.label5.TabIndex = 12;
@@ -234,7 +221,7 @@
             this.lblVotos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVotos.AutoSize = true;
             this.lblVotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVotos.Location = new System.Drawing.Point(933, 20);
+            this.lblVotos.Location = new System.Drawing.Point(117, 39);
             this.lblVotos.Name = "lblVotos";
             this.lblVotos.Size = new System.Drawing.Size(18, 20);
             this.lblVotos.TabIndex = 13;
@@ -244,7 +231,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(878, 159);
+            this.label6.Location = new System.Drawing.Point(711, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 14;
@@ -253,7 +240,7 @@
             // lstHistorico
             // 
             this.lstHistorico.FormattingEnabled = true;
-            this.lstHistorico.Location = new System.Drawing.Point(778, 175);
+            this.lstHistorico.Location = new System.Drawing.Point(611, 172);
             this.lstHistorico.Name = "lstHistorico";
             this.lstHistorico.Size = new System.Drawing.Size(241, 277);
             this.lstHistorico.TabIndex = 15;
@@ -262,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 461);
+            this.ClientSize = new System.Drawing.Size(865, 461);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lstHistorico);
             this.Controls.Add(this.lblVotos);
@@ -270,7 +257,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lstPontuacao);
             this.Controls.Add(this.lblPartidaStatus);
-            this.Controls.Add(this.lblVezInfo);
             this.Controls.Add(this.lblVez);
             this.Controls.Add(this.gpbPartida);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -299,7 +285,6 @@
         private System.Windows.Forms.ListBox lstSetores;
         private System.Windows.Forms.ListBox lstPersonagens;
         private System.Windows.Forms.Label lblVez;
-        private System.Windows.Forms.Label lblVezInfo;
         private System.Windows.Forms.Label lblPartidaStatus;
         private System.Windows.Forms.GroupBox gpbVotacao;
         private System.Windows.Forms.RadioButton rdbSim;
