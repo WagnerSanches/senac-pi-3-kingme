@@ -329,7 +329,8 @@ namespace KingMe_NewVersion
 
                     for(int i = 0; i < MY_FAVORITES_PLAYED; i++)
                     {
-                        if (!historico.ContainsKey(favoritos[i].ToString()))
+                        string p = favoritos[i].ToString().Trim();
+                        if (!historico.ContainsKey(p))
                         {
                             string status = Jogo.ColocarPersonagem(Global.player.id, Global.player.senha, setor, favoritos[MY_FAVORITES_PLAYED - 1].ToString());
                             placed = true;
