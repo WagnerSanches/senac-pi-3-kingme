@@ -112,11 +112,14 @@ namespace KingMe_NewVersion
                     lblVezInfo.Text = hist[0];
                     lstHistorico.Items.Clear();
 
-                    for (int i = 1; i < hist.Length; i++)
+                    for (int i = 1; i < hist.Length - 1; i++)
                     {
                         if (!historico.ContainsKey(hist[i].Split(',')[1].Trim()))
                         {
                             historico.Add(hist[i].Split(',')[1].Trim(), Int32.Parse(hist[i].Split(',')[0]));
+                        } else
+                        {
+                            historico[hist[i].Split(',')[1].Trim()] = Int32.Parse(hist[i].Split(',')[0]);
                         }
 
                         lstHistorico.Items.Add(hist[i]);
