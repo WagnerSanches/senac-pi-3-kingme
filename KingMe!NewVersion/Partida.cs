@@ -78,6 +78,9 @@ namespace KingMe_NewVersion
                         jogando = false;
                         historico = new Dictionary<string, int>();
                         favoritos = new List<char>();
+                        listarSetores();
+                        listarPersonagens();
+                        listarFavoritos();
                     }
 
                     break;
