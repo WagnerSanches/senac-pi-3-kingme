@@ -109,7 +109,6 @@ namespace KingMe_NewVersion
                     atualizarPontuacao();
 
                     string[] hist = status.Replace("\r", "").Split('\n');
-                    lblVezInfo.Text = hist[0];
                     lstHistorico.Items.Clear();
 
                     for (int i = 1; i < hist.Length - 1; i++)
@@ -117,6 +116,9 @@ namespace KingMe_NewVersion
                         if (!historico.ContainsKey(hist[i].Split(',')[1].Trim()))
                         {
                             historico.Add(hist[i].Split(',')[1].Trim(), Int32.Parse(hist[i].Split(',')[0]));
+                        } else
+                        {
+                            historico[hist[i].Split(',')[1].Trim()] = Int32.Parse(hist[i].Split(',')[0]);
                         }
 
                         lstHistorico.Items.Add(hist[i]);
@@ -185,7 +187,7 @@ namespace KingMe_NewVersion
             lblVotos.Text = Global.player.votos.ToString();
 
             loading.Image = global::KingMe_NewVersion.Properties.Resources.load;
-            loading.Location = new System.Drawing.Point(370, 220);
+            loading.Location = new System.Drawing.Point(270, 220);
             loading.Name = "pictureBox1";
             loading.Size = new System.Drawing.Size(60, 60);
             loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
