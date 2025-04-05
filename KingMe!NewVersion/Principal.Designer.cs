@@ -47,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCriarPartida = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             // 
             this.lblNomeJogador.AutoSize = true;
             this.lblNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeJogador.Location = new System.Drawing.Point(472, 31);
+            this.lblNomeJogador.Location = new System.Drawing.Point(447, 64);
             this.lblNomeJogador.Name = "lblNomeJogador";
             this.lblNomeJogador.Size = new System.Drawing.Size(132, 18);
             this.lblNomeJogador.TabIndex = 0;
@@ -86,7 +87,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::KingMe_NewVersion.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(412, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(387, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(54, 54);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -250,11 +251,24 @@
             this.btnCriarPartida.UseVisualStyleBackColor = true;
             this.btnCriarPartida.Click += new System.EventHandler(this.btnCriarPartida_Click);
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(409, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(170, 20);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Mercadores de Bruges";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 489);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCriarPartida);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnReload);
@@ -296,5 +310,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtInfoPartida_Senha;
         private System.Windows.Forms.Button btnCriarPartida;
+        private System.Windows.Forms.Label label7;
     }
 }

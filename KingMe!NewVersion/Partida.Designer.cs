@@ -47,6 +47,7 @@
             this.lblVotos = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lstHistorico = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.gpbPartida.SuspendLayout();
             this.gpbVotacao.SuspendLayout();
             this.SuspendLayout();
@@ -168,7 +169,7 @@
             this.lblVez.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVez.AutoSize = true;
             this.lblVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVez.Location = new System.Drawing.Point(383, 9);
+            this.lblVez.Location = new System.Drawing.Point(414, 29);
             this.lblVez.Name = "lblVez";
             this.lblVez.Size = new System.Drawing.Size(40, 20);
             this.lblVez.TabIndex = 1;
@@ -180,7 +181,7 @@
             this.lblPartidaStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPartidaStatus.AutoSize = true;
             this.lblPartidaStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartidaStatus.Location = new System.Drawing.Point(386, 29);
+            this.lblPartidaStatus.Location = new System.Drawing.Point(417, 49);
             this.lblPartidaStatus.Name = "lblPartidaStatus";
             this.lblPartidaStatus.Size = new System.Drawing.Size(37, 20);
             this.lblPartidaStatus.TabIndex = 3;
@@ -209,7 +210,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 9);
+            this.label5.Location = new System.Drawing.Point(14, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 20);
             this.label5.TabIndex = 12;
@@ -221,7 +222,7 @@
             this.lblVotos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVotos.AutoSize = true;
             this.lblVotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVotos.Location = new System.Drawing.Point(205, 9);
+            this.lblVotos.Location = new System.Drawing.Point(202, 49);
             this.lblVotos.Name = "lblVotos";
             this.lblVotos.Size = new System.Drawing.Size(18, 20);
             this.lblVotos.TabIndex = 13;
@@ -245,11 +246,24 @@
             this.lstHistorico.Size = new System.Drawing.Size(241, 277);
             this.lstHistorico.TabIndex = 15;
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(170, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Mercadores de Bruges";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 461);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lstHistorico);
             this.Controls.Add(this.lblVotos);
@@ -295,5 +309,6 @@
         private System.Windows.Forms.Label lblVotos;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lstHistorico;
+        private System.Windows.Forms.Label label7;
     }
 }
