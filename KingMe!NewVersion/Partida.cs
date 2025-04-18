@@ -347,7 +347,6 @@ namespace KingMe_NewVersion
                             Console.WriteLine(status);
                             break;
                         }
-
                     }
 
                     if (placed == false)
