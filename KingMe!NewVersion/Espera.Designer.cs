@@ -38,6 +38,7 @@
             this.lblSenhaJogador = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // lblInfoPartida
             // 
             this.lblInfoPartida.AutoSize = true;
-            this.lblInfoPartida.Location = new System.Drawing.Point(220, 96);
+            this.lblInfoPartida.Location = new System.Drawing.Point(214, 117);
             this.lblInfoPartida.Name = "lblInfoPartida";
             this.lblInfoPartida.Size = new System.Drawing.Size(35, 13);
             this.lblInfoPartida.TabIndex = 2;
@@ -81,7 +82,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::KingMe_NewVersion.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(129, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(123, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(54, 54);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -92,7 +93,7 @@
             // 
             this.lblNomeJogador.AutoSize = true;
             this.lblNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeJogador.Location = new System.Drawing.Point(189, 18);
+            this.lblNomeJogador.Location = new System.Drawing.Point(183, 39);
             this.lblNomeJogador.Name = "lblNomeJogador";
             this.lblNomeJogador.Size = new System.Drawing.Size(132, 18);
             this.lblNomeJogador.TabIndex = 4;
@@ -102,7 +103,7 @@
             // 
             this.lblIDJogador.AutoSize = true;
             this.lblIDJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDJogador.Location = new System.Drawing.Point(220, 36);
+            this.lblIDJogador.Location = new System.Drawing.Point(214, 57);
             this.lblIDJogador.Name = "lblIDJogador";
             this.lblIDJogador.Size = new System.Drawing.Size(91, 18);
             this.lblIDJogador.TabIndex = 6;
@@ -112,7 +113,7 @@
             // 
             this.lblSenhaJogador.AutoSize = true;
             this.lblSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaJogador.Location = new System.Drawing.Point(252, 54);
+            this.lblSenhaJogador.Location = new System.Drawing.Point(246, 75);
             this.lblSenhaJogador.Name = "lblSenhaJogador";
             this.lblSenhaJogador.Size = new System.Drawing.Size(119, 18);
             this.lblSenhaJogador.TabIndex = 7;
@@ -122,7 +123,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(190, 54);
+            this.label2.Location = new System.Drawing.Point(184, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 18);
             this.label2.TabIndex = 8;
@@ -132,17 +133,30 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(189, 36);
+            this.label3.Location = new System.Drawing.Point(183, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "ID: ";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(157, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(170, 20);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Mercadores de Bruges";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Espera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblSenhaJogador);
@@ -176,5 +190,6 @@
         private System.Windows.Forms.Label lblSenhaJogador;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
     }
 }

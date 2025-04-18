@@ -78,6 +78,7 @@ namespace KingMe_NewVersion
                         jogando = false;
                         historico = new Dictionary<string, int>();
                         favoritos = new List<char>();
+                        Global.player.votos = 4;
                         listarSetores();
                         listarPersonagens();
                         listarFavoritos();
@@ -92,9 +93,23 @@ namespace KingMe_NewVersion
                     lstSetores.Hide();
                     label3.Hide();
                     gpbVotacao.Show();
+                    jogando = true;
                     break;
                 case "E":
-                    MessageBox.Show("Fim de jogo!");
+                    
+                    int pontuacao_player_um = Int32.Parse(lstPontuacao.Items[0].ToString().Replace("   ", ",").Split(',')[2]);
+                    int pontuacao_player_dois = Int32.Parse(lstPontuacao.Items[1].ToString().Replace("   ", ",").Split(',')[2]);
+
+                    if(pontuacao_player_um > pontuacao_player_dois)
+                    {
+                        string player = $"{lstPontuacao.Items[0].ToString().Replace("   ", ",").Split(',')[0]} ({lstPontuacao.Items[0].ToString().Replace("   ", ",").Split(',')[1]})";
+                        MessageBox.Show($"Player {player} ganhou!");
+                    } else
+                    {
+                        string player = $"{lstPontuacao.Items[1].ToString().Replace("   ", ",").Split(',')[0]} ({lstPontuacao.Items[1].ToString().Replace("   ", ",").Split(',')[1]})";
+                        MessageBox.Show($"Player {player} ganhou!");
+                    }
+
                     this.Close();
                     break;
             }
@@ -213,7 +228,7 @@ namespace KingMe_NewVersion
             listarFavoritos();
             await verificarVez();
 
-            await jogar();
+            //await jogar();
         }
 
 
@@ -310,11 +325,11 @@ namespace KingMe_NewVersion
 
             if (Validator.validateStatus(status))
             {
-                await verificarVez();
+                tabuleiro.atualizarTabuleiro();
                 listarSetores();
                 listarPersonagens();
                 listarFavoritos();
-                tabuleiro.atualizarTabuleiro();
+                await verificarVez();
             }
         }
 
