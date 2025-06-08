@@ -175,7 +175,7 @@ namespace KingMe_NewVersion
                     }
                 }
 
-                await Task.Delay(3000); 
+                await Task.Delay(1000); 
             }
         }
 
@@ -248,7 +248,7 @@ namespace KingMe_NewVersion
             favorito.Text = character;
             favorito.AutoSize = false; 
             favorito.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            favorito.ForeColor = System.Drawing.Color.White;
+            favorito.ForeColor = System.Drawing.Color.Black;
 
             this.panel1.Controls.Add(favorito);
             labels.Add(favorito);
@@ -336,12 +336,14 @@ namespace KingMe_NewVersion
         private async Task jogar()
         {
             await verificarVez();
-            await Task.Delay(3000);
+            await Task.Delay(500);
 
             int setor = 0;
+            // 
             switch(Global.partida.etapa)
             {
                 case "S":
+
                     for (int i = 1; i < 5; i++)
                     {
                         if (Global.setores[i] < 4)

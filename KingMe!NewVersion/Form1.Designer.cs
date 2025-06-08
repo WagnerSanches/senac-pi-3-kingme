@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.lblJogo_Versao = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.btnJogar = new System.Windows.Forms.Button();
             this.btnEntrarPartidaExistente = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,17 +45,6 @@
             this.lblJogo_Versao.Size = new System.Drawing.Size(51, 13);
             this.lblJogo_Versao.TabIndex = 5;
             this.lblJogo_Versao.Text = "VERSÃO";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::KingMe_NewVersion.Properties.Resources.kingme;
-            this.pictureBox1.ImageLocation = "C:\\Users\\Home-PC\\source\\repos\\KingMe!NewVersion\\KingMe!NewVersion\\images\\kingme.p" +
-    "ng";
-            this.pictureBox1.Location = new System.Drawing.Point(160, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(272, 86);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -101,10 +90,22 @@
             this.btnEntrarPartidaExistente.UseVisualStyleBackColor = false;
             this.btnEntrarPartidaExistente.Click += new System.EventHandler(this.btnEntrarPartidaExistente_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KingMe_NewVersion.Properties.Resources.kingme;
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.InitialImage = global::KingMe_NewVersion.Properties.Resources.kingme;
+            this.pictureBox1.Location = new System.Drawing.Point(160, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(272, 86);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::KingMe_NewVersion.Properties.Resources.wall_background;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.btnEntrarPartidaExistente);
             this.Controls.Add(this.btnJogar);
@@ -126,11 +127,11 @@
 
         #endregion
         private System.Windows.Forms.Label lblJogo_Versao;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeJogador;
         private System.Windows.Forms.Button btnJogar;
         private System.Windows.Forms.Button btnEntrarPartidaExistente;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

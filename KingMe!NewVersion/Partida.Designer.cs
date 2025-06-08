@@ -262,6 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::KingMe_NewVersion.Properties.Resources.wall_background;
             this.ClientSize = new System.Drawing.Size(865, 461);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);

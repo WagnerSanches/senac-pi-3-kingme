@@ -255,10 +255,10 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(409, 9);
+            this.label7.Font = new System.Drawing.Font("Playbill", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(28, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(170, 20);
+            this.label7.Size = new System.Drawing.Size(228, 40);
             this.label7.TabIndex = 17;
             this.label7.Text = "Mercadores de Bruges";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -267,6 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::KingMe_NewVersion.Properties.Resources.wall_background;
             this.ClientSize = new System.Drawing.Size(984, 489);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCriarPartida);
