@@ -1,4 +1,4 @@
-﻿using KingMe_NewVersion.utils;
+using KingMe_NewVersion.utils;
 using KingMeServer;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace KingMe_NewVersion
         List<Label> labels = new List<Label>();
         PictureBox loading = new PictureBox();
         List<char> favoritos = new List<char>();
-        int MY_FAVORITES_PLAYED = 5;
+        int characters_placing = 5;
         Dictionary<string, int> historico = new Dictionary<string, int>();
         bool jogando = false;
 
@@ -78,13 +78,14 @@ namespace KingMe_NewVersion
                         jogando = false;
                         historico = new Dictionary<string, int>();
                         favoritos = new List<char>();
-                        Global.player.votos = 4;
+
                         listarSetores();
                         listarPersonagens();
                         listarFavoritos();
+                        setarRegras();
                     }
-
                     break;
+
                 case "V":
                     lblPartidaStatus.Text = "Votacao!";
                     Global.partida.etapa = "V";
@@ -95,6 +96,7 @@ namespace KingMe_NewVersion
                     gpbVotacao.Show();
                     jogando = true;
                     break;
+                
                 case "E":
                     
                     int pontuacao_player_um = Int32.Parse(lstPontuacao.Items[0].ToString().Replace("   ", ",").Split(',')[2]);
@@ -223,12 +225,41 @@ namespace KingMe_NewVersion
             this.Controls.Add(loading);
             loading.Hide();
 
+
             listarSetores();
             listarPersonagens();
             listarFavoritos();
-            await verificarVez();
+            setarRegras();
 
+            await verificarVez();
             await jogar();
+        }
+
+        
+
+        public void setarRegras()
+        {
+            int jogadores = Jogo.ListarJogadores(Global.partida.id).Split('\r').Length - 1;
+
+            switch(jogadores)
+            {
+                case 2:
+                    Global.player.votos = 4;
+                    characters_placing = 6;
+                    break;
+                case 3:
+                    Global.player.votos = 4;
+                    characters_placing = 4;
+                    break;
+                case 4:
+                    Global.player.votos = 3;
+                    characters_placing = 3;
+                    break;
+
+            }
+
+
+            lblVotos.Text = Global.player.votos.ToString();
         }
 
 
@@ -339,7 +370,6 @@ namespace KingMe_NewVersion
             await Task.Delay(500);
 
             int setor = 0;
-            // 
             switch(Global.partida.etapa)
             {
                 case "S":
@@ -355,7 +385,7 @@ namespace KingMe_NewVersion
 
                     bool placed = false;
 
-                    for(int i = 0; i < MY_FAVORITES_PLAYED; i++)
+                    for(int i = 0; i < characters_placing; i++)
                     {
                         if (!historico.ContainsKey(favoritos[i].ToString().Trim()))
                         {
