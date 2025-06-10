@@ -228,7 +228,7 @@ namespace KingMe_NewVersion
             listarFavoritos();
             await verificarVez();
 
-            //await jogar();
+            await jogar();
         }
 
 
